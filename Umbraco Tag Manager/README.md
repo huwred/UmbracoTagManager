@@ -1,4 +1,4 @@
-# Umbraco-Tag-Manager
+# Our.Umbraco.TagManager
 
 Simple Tag Manager for Umbraco ≥ 10. 
 
