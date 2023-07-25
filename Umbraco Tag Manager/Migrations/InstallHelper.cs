@@ -1,8 +1,9 @@
 ﻿using Umbraco.Cms.Infrastructure.Migrations;
+using Umbraco_Tag_Manager;
 
-namespace Umbraco_Tag_Manager
+namespace Our.Umbraco.TagManager.Migrations
 {
-    public class InstallHelper: MigrationBase
+    public class InstallHelper : MigrationBase
     {
         private readonly string[] _userGroups = { "admin", "editor", "writer" };
 
