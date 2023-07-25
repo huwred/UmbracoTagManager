@@ -1,9 +1,18 @@
-﻿using System.Net.Http.Formatting;
-using Umbraco.Core.Scoping;
-using Umbraco.Web;
-using Umbraco.Web.Models.Trees;
-using Umbraco.Web.Mvc;
-using Umbraco.Web.Trees;
+﻿
+
+using System;
+using Microsoft.AspNetCore.Http;
+using Microsoft.AspNetCore.Mvc;
+using Microsoft.Extensions.Logging;
+using Umbraco.Cms.Core.Events;
+using Umbraco.Cms.Core;
+using Umbraco.Cms.Core.Models.Trees;
+using Umbraco.Cms.Core.Services;
+using Umbraco.Cms.Core.Trees;
+using Umbraco.Cms.Infrastructure.Scoping;
+using Umbraco.Cms.Web.BackOffice.Trees;
+using Umbraco.Cms.Web.Common.Attributes;
+using Umbraco.Extensions;
 
 namespace Umbraco_Tag_Manager.Controllers
 {
@@ -12,15 +21,20 @@ namespace Umbraco_Tag_Manager.Controllers
     public class TagManagerTreeController : TreeController
     {
         private readonly TagManagerApiController _tManagerController;
+        private readonly IMenuItemCollectionFactory _menuItemCollectionFactory;
 
-        public TagManagerTreeController(IScopeProvider scopeProvider)
+        public TagManagerTreeController(ILocalizedTextService localizedTextService, 
+            UmbracoApiControllerTypeCollection umbracoApiControllerTypeCollection, 
+            IEventAggregator eventAggregator,
+            IScopeProvider scopeProvider,
+            IContentService contentService,ILogger<TagManagerApiController> logger,IMediaService mediaService,ITagService tagService,IMenuItemCollectionFactory menuItemCollectionFactory) : base(localizedTextService, umbracoApiControllerTypeCollection, eventAggregator)
         {
-            _tManagerController = new TagManagerApiController(scopeProvider);
+            _tManagerController = new TagManagerApiController(scopeProvider,contentService,logger,mediaService,tagService);
+            _menuItemCollectionFactory = menuItemCollectionFactory ?? throw new ArgumentNullException(nameof(menuItemCollectionFactory));
         }
-
-        protected override TreeNodeCollection GetTreeNodes(string id, FormDataCollection queryStrings)
+        protected override ActionResult<TreeNodeCollection> GetTreeNodes(string id, FormCollection queryStrings)
         {
-            if (id == global::Umbraco.Core.Constants.System.Root.ToString())
+            if (id == Constants.System.Root.ToInvariantString())
             {
                 //top level nodes - generate list of tag groups that this user has access to.       
                 var tree = new TreeNodeCollection();
@@ -54,9 +68,9 @@ namespace Umbraco_Tag_Manager.Controllers
             }
         }
 
-        protected override MenuItemCollection GetMenuForNode(string id, FormDataCollection queryStrings)
+        protected override ActionResult<MenuItemCollection> GetMenuForNode(string id, FormCollection queryStrings)
         {
-            var menu = new MenuItemCollection();
+            var menu = _menuItemCollectionFactory.Create();
 
             if (id.Contains("tag-"))
             {
