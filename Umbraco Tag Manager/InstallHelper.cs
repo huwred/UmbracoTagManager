@@ -1,4 +1,4 @@
-﻿using Umbraco.Core.Migrations;
+﻿using Umbraco.Cms.Infrastructure.Migrations;
 
 namespace Umbraco_Tag_Manager
 {
@@ -10,7 +10,7 @@ namespace Umbraco_Tag_Manager
         {
         }
 
-        public override void Migrate()
+        protected override void Migrate()
         {
             var dbContext = Context.Database;
             if (TableExists("umbracoUserGroup2App"))
