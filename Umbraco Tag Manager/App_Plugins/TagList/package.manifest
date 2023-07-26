@@ -1,16 +1,10 @@
 {
-  // we can define multiple editors
   "propertyEditors": [
     {
-      /*this must be a unique alias*/
       "alias": "CommonTagList",
-      /*the name*/
       "name": "Common Tags",
-      /*the icon*/
       "icon": "icon-list",
-      /*grouping for "Select editor" dialog*/
       "group": "pickers",
-      /*the HTML file we will load for the editor*/
       "editor": {
         "view": "~/App_Plugins/TagList/taglisteditor.html",
         "valueType": "JSON"
