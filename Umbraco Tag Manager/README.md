@@ -1,10 +1,10 @@
-# Our.Umbraco.TagManager
+# Umbraco.Communiy.TagManager
 
 Simple Tag Manager for Umbraco ≥ 10. 
 
-Based on code from https://github.com/usome/UmbracoTagManager
+Based on code from https://github.com/usome/UmbracoTagManager and my own TagList
 
-This package installs a custom section within the administration area.
+This package installs a custom section within the administration area and a new Tag Picker (CommonTags).
 
 It creates a tree view of all tags that have been created by the Umbraco Tag Datatype. 
 
