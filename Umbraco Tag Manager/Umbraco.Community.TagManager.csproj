@@ -3,9 +3,9 @@
     <TargetFramework>net6.0</TargetFramework>
     <Version>10.0.0</Version>
     <ContentTargetFolders>.</ContentTargetFolders>
-    <Product>Our.Umbraco.TagManager</Product>
-    <PackageId>Our.Umbraco.TagManager</PackageId>
-    <Title>Our.Umbraco.TagManager</Title>
+    <Product>Umbraco.Community.TagManager</Product>
+    <PackageId>Umbraco.Community.TagManager</PackageId>
+    <Title>Umbraco TagManager</Title>
     <Company>MediaWizards</Company>
     <Owners>Huw Reddick</Owners>
     <Authors>usome;huwred</Authors>
