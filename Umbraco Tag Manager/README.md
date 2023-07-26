@@ -18,3 +18,6 @@ Functionality includes:
 4. Indication of how many times the tag is currently being used (number in brackets).
 5. Ability to move all tagged nodes to another tag - useful in cases of spelling mistakes, cleaning up tags, etc.
 6. Links to content and media where tag is used.
+
+# Tag List
+Merged my own Tag Lister package, CommnTag picker control.

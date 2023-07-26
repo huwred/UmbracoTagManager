@@ -1,19 +1,15 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Globalization;
 using System.Linq;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 using Newtonsoft.Json;
 using NPoco;
-using NPoco.fastJSON;
 using Umbraco.Cms.Core.Services;
 using Umbraco.Cms.Infrastructure.Scoping;
 using Umbraco.Cms.Web.BackOffice.Controllers;
 using Umbraco.Cms.Web.Common.Attributes;
-using Umbraco.Extensions;
 using Umbraco_Tag_Manager.Models;
-using ILogger = Serilog.ILogger;
 
 namespace Umbraco_Tag_Manager.Controllers
 {

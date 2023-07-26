@@ -2,7 +2,6 @@
 
 using Microsoft.Extensions.Logging;
 using Our.Umbraco.TagManager.Migrations;
-using Serilog;
 using Umbraco.Cms.Core.Composing;
 using Umbraco.Cms.Core.DependencyInjection;
 using Umbraco.Cms.Core.Services;
