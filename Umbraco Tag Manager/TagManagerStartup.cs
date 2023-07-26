@@ -3,7 +3,6 @@
 using Microsoft.Extensions.Logging;
 using Our.Umbraco.TagManager.Migrations;
 using Umbraco.Cms.Core.Composing;
-using Umbraco.Cms.Core.DependencyInjection;
 using Umbraco.Cms.Core.Services;
 using Umbraco.Cms.Infrastructure.Migrations;
 using Umbraco.Cms.Infrastructure.Migrations.Upgrade;
@@ -11,15 +10,6 @@ using Umbraco.Cms.Infrastructure.Scoping;
 
 namespace Umbraco_Tag_Manager
 {
-    public class TagManagerComposer : IComposer
-    {
-
-        public void Compose(IUmbracoBuilder builder)
-        {
-            builder.Sections().Append<TagManagerSection>();
-        }
-    }
-
     public class TagManagerComponentComposer : ComponentComposer<TagManagerStartup>
     {
 
@@ -45,10 +35,10 @@ namespace Umbraco_Tag_Manager
 
         public void Initialize()
         {
-            var migrationPlan = new MigrationPlan("UsomeTagManagerMigrationv1");
-            migrationPlan.From(string.Empty).To<InstallHelper>("UsomeTagManagerMigrationv1-db");
-            var upgrader = new Upgrader(migrationPlan);
-            upgrader.Execute(new MigrationPlanExecutor(_scopeProvider,_scopeAccessor,_logger,_migrationBuilder), _scopeProvider, _keyValueService);
+            //var migrationPlan = new MigrationPlan("UsomeTagManagerMigrationv1");
+            //migrationPlan.From(string.Empty).To<InstallHelper>("UsomeTagManagerMigrationv1-db");
+            //var upgrader = new Upgrader(migrationPlan);
+            //upgrader.Execute(new MigrationPlanExecutor(_scopeProvider, _scopeAccessor, _logger, _migrationBuilder), _scopeProvider, _keyValueService);
 
         }
 
