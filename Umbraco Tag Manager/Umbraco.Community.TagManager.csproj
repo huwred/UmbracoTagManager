@@ -1,7 +1,7 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
   <PropertyGroup>
     <TargetFramework>net6.0</TargetFramework>
-    <Version>10.0.0-rc1</Version>
+    <Version>10.0.0-rc2</Version>
     <ContentTargetFolders>.</ContentTargetFolders>
     <Product>Umbraco.Community.TagManager</Product>
     <PackageId>Umbraco.Community.TagManager</PackageId>
@@ -14,12 +14,16 @@
     <PackageReadmeFile>README.md</PackageReadmeFile>
     <PackageLicenseExpression>MIT</PackageLicenseExpression>
     <PackageTags>umbraco-marketplace umbraco plugin package</PackageTags>
+    <GeneratePackageOnBuild>True</GeneratePackageOnBuild>
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="Umbraco.Cms.Web.Website" Version="10.5.1" />
-    <PackageReference Include="Umbraco.Cms.Web.BackOffice" Version="10.5.1" />
+	  <PackageReference Include="Umbraco.Cms.Core" Version="[10.0.1, 11.0.0]" />
+	  <PackageReference Include="Umbraco.Cms.Web.Website" Version="[10.0.1, 11.0.0]" PrivateAssets="All" />
+	  <PackageReference Include="Umbraco.Cms.Web.BackOffice" Version="[10.0.1, 11.0.0]" PrivateAssets="All" />
   </ItemGroup>
+
+	<Import Project="..\Custom.targets" />
 
   <ItemGroup>
     <Content Include="App_Plugins\TagManager\**" ExcludeFromSingleFile="true" CopyToPublishDirectory="Always" />
