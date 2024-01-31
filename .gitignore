@@ -6,6 +6,7 @@
 #build/#
 *lnk
 /.vs
+/Custom.targets
 
 # Umbraco files
 
@@ -145,4 +146,5 @@ Build/Output/
 Thumbs.db
 access.config
 Solution/packages
+
 
