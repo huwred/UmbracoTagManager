@@ -25,7 +25,13 @@ namespace Umbraco_Tag_Manager.Controllers
             UmbracoApiControllerTypeCollection umbracoApiControllerTypeCollection, 
             IEventAggregator eventAggregator,
             IScopeProvider scopeProvider,
-            IContentService contentService,ILogger<TagManagerApiController> logger,IMediaService mediaService,ITagService tagService,IMenuItemCollectionFactory menuItemCollectionFactory) : base(localizedTextService, umbracoApiControllerTypeCollection, eventAggregator)
+            IContentService contentService,
+            ILogger<TagManagerApiController> logger,
+            IMediaService mediaService,
+            ITagService tagService,
+            IDataTypeService dataTypeService,
+            IMenuItemCollectionFactory menuItemCollectionFactory
+            ) : base(localizedTextService, umbracoApiControllerTypeCollection, eventAggregator)
         {
             _tManagerController = new TagManagerApiController(scopeProvider,contentService,logger,mediaService,tagService);
             _menuItemCollectionFactory = menuItemCollectionFactory ?? throw new ArgumentNullException(nameof(menuItemCollectionFactory));
