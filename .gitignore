@@ -148,3 +148,4 @@ access.config
 Solution/packages
 
 
+/TagManager.Client/Client/node_modules/@umbraco-cms/backoffice/dist-cms/packages/documents/documents/user-permissions/document-property-value
